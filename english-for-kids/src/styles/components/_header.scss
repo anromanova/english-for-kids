@@ -1,0 +1,48 @@
+.header_container {
+  min-height: 15%;
+  width: 90%;
+  margin: 20px 20px 40px;
+  background-color: $color-light;
+  border-radius: 30px;
+  display: flex;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  color: $color-additional;
+  @media (max-width: 400px) {
+    border-radius: 15px;
+    justify-content: space-around;
+  }
+
+  .logo {
+    @include font(2.6rem, 2.6rem, $weight: 900);
+    @include media-help {
+      order: -1;
+      flex-basis: 790px;
+    }
+    @media (max-width: 400px) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+      -webkit-clip-path: inset(100%);
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+  }
+}
+
+.playmode {
+  display: flex;
+
+  .playmode__text {
+    cursor: pointer;
+    padding: 0 10px;
+  }
+}

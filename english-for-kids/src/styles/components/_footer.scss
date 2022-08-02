@@ -1,0 +1,20 @@
+.footer_container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: $color-text;
+  @include font(1.6rem, 2.6rem, $weight: 400);
+  .footer-link {
+    color: inherit;
+    padding: 0 10px;
+
+    &:hover {
+      color: $color-additional;
+    }
+  }
+  .footer_content {
+    padding: 0 10px;
+  }
+}

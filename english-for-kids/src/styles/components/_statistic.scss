@@ -1,0 +1,120 @@
+.statistic {
+  @include font(1.6rem, 2.6rem, $weight: 400);
+  width: 100%;
+  height: 100%;
+  background-color: $color-light;
+  padding: 30px 20px;
+  border-radius: 30px;
+  text-align: left;
+  color: $color-text;
+  th {
+    table-layout: fixed;
+    @include font(1.6rem, 2.6rem, $weight: 900);
+    color: $color-additional;
+    cursor: pointer;
+    padding: 5px 5px;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  @media (max-width: 880px) {
+    @include font(1.4rem, 1.6rem, $weight: 400);
+    th[title~="category"] {
+      display: none;
+    }
+  }
+  @media (max-width: 720px) {
+    @include font(1.2rem, 1.6rem, $weight: 400);
+    th[title~="correct"] {
+      display: none;
+    }
+  }
+  @include media-mobile {
+    border-radius: 10px;
+    padding: 5px 0;
+    th[title~="incorrect"] {
+      display: none;
+    }
+  }
+  @media (max-width: 400px) {
+    padding: 10px 0;
+    th[title~="trained"] {
+      display: none;
+    }
+  }
+}
+
+.table-words {
+  height: calc(100vh - 40px);
+  table-layout: fixed;
+}
+
+.word-line {
+  border-color: $color-tag;
+  td {
+    padding: 5px 10px;
+  }
+  @media (max-width: 880px) {
+    padding: 5px 5px;
+    td:first-child {
+      display: none;
+    }
+  }
+  @media (max-width: 720px) {
+    td:nth-child(5) {
+      display: none;
+    }
+  }
+  @include media-mobile {
+    padding: 5px 5px;
+    td:first-child,
+    td:nth-child(6) {
+      display: none;
+    }
+  }
+  @media (max-width: 400px) {
+    padding: 5px 5px;
+    td:not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(7)) {
+      display: none;
+    }
+  }
+}
+
+.down {
+  color: $color-tag;
+}
+
+.statistic-btn {
+  cursor: pointer;
+  padding: 0;
+  background-color: $color-primary;
+  border: none;
+  position: relative;
+  box-sizing: content-box;
+  width: 10rem;
+  height: 3.8rem;
+  border-radius: 34px;
+  color: $color-light;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.6rem;
+  margin-bottom: 2rem;
+  margin-top: -1rem;
+
+  &:hover {
+    background-color: $color-additional;
+  }
+}
+
+.statistic-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  @include media-mobile {
+    align-items: center;
+  }
+}

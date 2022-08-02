@@ -1,0 +1,130 @@
+.card-container {
+  font-weight: 400;
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-img {
+  object-fit: cover;
+  display: block;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 90%;
+}
+
+.img-container {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.content-container {
+  width: 180px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-turn {
+  display: block;
+  color: $color-text;
+  width: 30px;
+  height: 30px;
+  opacity: 0.6;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.card {
+  padding: 5px;
+  border-radius: 10px;
+  border: 5px solid $color-primary;
+  background-color: $color-light;
+  @extend %transition;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  @extend %transition;
+  transform-style: preserve-3d;
+  position: relative;
+
+  .card-title {
+    display: block;
+    @extend %transition;
+    align-self: flex-start;
+    color: $color-text;
+    padding: 0;
+    margin: 0;
+    @include font(1.6rem, 2.6rem, $weight: 900);
+  }
+  &:hover {
+    box-shadow: 0px 4px 16px rgb(0 0 0 / 25%);
+    .card-title {
+      color: $color-additional;
+    }
+  }
+}
+
+.card-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  .card-translation {
+    color: $color-primary;
+    padding: 0;
+    margin: 0;
+    @include font(2.6rem, 2.6rem, $weight: 900);
+  }
+}
+
+.card--active {
+  border: 5px solid $color-tag;
+  .content-container {
+    display: none;
+  }
+}
+
+.card--disabled {
+  filter: blur(4px) grayscale(0.4);
+  cursor: auto;
+  pointer-events: none;
+  .card {
+    &:hover {
+      box-shadow: 0px;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+.burger {
+  display: block;
+  margin-right: 240px;
+  cursor: pointer;
+  @extend %transition;
+  position: relative;
+  z-index: 99;
+
+  @include media-tablet {
+    margin-right: 20px;
+  }
+  @media only screen and (max-width: 385px) {
+    margin: 10px 0;
+    flex-basis: 100px;
+    flex-grow: 2;
+  }
+
+  .burger__line {
+    @extend %transition;
+    border-radius: 10px;
+    display: block;
+    width: 30px;
+    background-color: $color-primary;
+    height: 3px;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &:hover {
+    .burger__line {
+      background-color: $color-additional;
+    }
+  }
+}
+
+.side-menu_container {
+  transform: translateX(-100%);
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  margin: 20px 0;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: $color-light;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  flex-direction: column;
+  width: 400px;
+  @include font(2.2rem, 2.6rem, $weight: 400);
+  @extend %transition;
+  color: $color-text;
+
+  @include media-tablet {
+    @include font(2rem, 2.6rem, $weight: 400);
+  }
+
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+    @include media-tablet {
+      margin-top: 50px;
+      margin-left: 50px;
+      padding-top: 0;
+    }
+    @media only screen and (max-width: 420px) {
+      margin-left: 40px;
+    }
+    a {
+      cursor: pointer;
+      color: $color-text;
+      margin-bottom: 40px;
+      line-height: 160%;
+      &:hover {
+        color: $color-primary;
+      }
+    }
+    .link-active {
+      color: $color-additional;
+    }
+    li {
+      list-style: none;
+      margin-left: 0;
+    }
+  }
+}
+
+.side-menu_active {
+  transform: translateX(0);
+}
+
+.burger_active {
+  transform: translateX(-200%) rotate(-180deg);
+  @include media-tablet {
+    transform: translateY(-100%) rotate(-180deg);
+  }
+  @media only screen and (max-width: 420px) {
+    transform: translateX(-100%) rotate(-180deg);
+  }
+}
+
+.game-mode {
+  background-color: $color-tag;
+}
+
+.play--active {
+  &:hover {
+    color: $color-tag;
+  }
+}
+
+.shadow-layer {
+  @extend %transition;
+  padding: 30px 10px;
+  background: linear-gradient(
+    rgba(96, 182, 214, 0.7) 0%,
+    rgba(241, 117, 136, 0.7) 100%
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+}
+.scroll-hidden {
+  overflow-y: hidden;
+}

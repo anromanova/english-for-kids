@@ -1,0 +1,117 @@
+.controlse {
+  display: flex;
+}
+
+.mode {
+  position: relative;
+  display: inline-block;
+  box-sizing: content-box;
+  width: 10rem;
+  height: 3.6rem;
+  border-radius: 34px;
+  margin-right: 1rem;
+  input {
+    display: none;
+  }
+}
+
+.btn-start {
+  cursor: pointer;
+  padding: 0;
+  background-color: $color-tag;
+  border: none;
+  position: relative;
+  display: none;
+  box-sizing: content-box;
+  width: 10rem;
+  height: 3.6rem;
+  border-radius: 34px;
+  color: $color-light;
+  text-transform: uppercase;
+  @include font(1.6rem, 1.6rem, $weight: 700);
+  @extend %transition;
+  margin-right: 1rem;
+
+  &:hover {
+    background-color: $color-additional;
+  }
+}
+
+.mode-controle {
+  border-radius: 30px;
+  position: absolute;
+  @extend %transition;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color-tag;
+  &::before {
+    @extend %transition;
+    position: absolute;
+    border-radius: 50%;
+    content: "";
+    height: 25px;
+    width: 25px;
+    left: 5px;
+    bottom: 5px;
+    background-color: $color-light;
+  }
+  span {
+    @include font(1.6rem, 1.6rem, $weight: 700);
+    color: $color-light;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    text-transform: uppercase;
+  }
+  // &:hover {
+  //   background-color: $color-additional;
+  // }
+}
+
+.mode-train {
+  display: none;
+  left: 35%;
+}
+
+.mode-play {
+  display: none;
+  left: 65%;
+}
+
+.mode--active {
+  display: block;
+}
+
+// input:checked + .mode-controle {
+//   &:hover {
+//     background-color: $color-additional;
+//   }
+// }
+
+input:checked + .mode-controle {
+  background-color: $color-primary;
+  &::before {
+    transform: translateX(250%);
+  }
+}
+
+.stars-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: -20px;
+  z-index: 999;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // position: fixed;
+  max-width: calc(100% - 30px);
+  img {
+    width: 60px;
+    height: 60px;
+  }
+}
